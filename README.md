@@ -138,9 +138,10 @@ BotName is connected and ready!
 
 ```
 discord-music-bot/
-├── bgmusic.py         # Main bot script
+├── bgmusic.py         # Contains commands
+├── main.py            # Main script to run
 ├── .env               # Secret token file (do not share)
-├── .gitignore         # Ignore .env and __pycache__
+├── .gitignore         # Ignore __pycache__
 ├── requirements.txt   # Project dependencies
 ├── README.md          # Setup instructions (this file)
 └── assets/            # Images for the README
@@ -148,9 +149,7 @@ discord-music-bot/
 
 ---
 
-## 🖼 Demo
-
-> Add a screenshot or GIF of the bot running here
+## 🖼 How it looks running
 
 ![Bot running screenshot](assets/nowplaying.png)
 
