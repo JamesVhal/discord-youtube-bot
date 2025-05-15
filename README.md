@@ -1,59 +1,162 @@
-# Discord Youtube Music Bot
+# Discord YouTube Music Bot
 
-A lightweight Python music bot for Discord using yt-dlp + ffmpeg + discord.py.
+A lightweight, Python-based music bot for Discord that plays audio from YouTube using `yt-dlp`, `ffmpeg`, and `discord.py`. It supports queueing, skipping, pausing, resuming, and looping.
 
-![Demo of the bot](assets/demo.png)
+> ⚠️ This bot runs on your local machine — you must keep the script running for the bot to stay online.
 
-## Features
+---
 
-- Play songs from YouTube via search or URL
-- Pause, resume, skip, and loop songs
-- Simple queue system
+## 🎧 Features
 
-...
+- Play songs using YouTube search or direct links
+- Pause, resume, skip, and stop music
+- View the current queue
+- Loop the currently playing song
+- Filters out YouTube livestreams to avoid crashes
 
-## Instructions
+---
 
-1. go to https://discord.com/developers/applications
+## ⚙️ Setup Instructions
 
-- Log into your discord account and create New Application on the applications page
-- Name however you like and click create
+### 1. Clone the Repository
 
-2. Set up general information
+```bash
+git clone https://github.com/JamesVhal/discord-youtube-bot
+```
 
-- Description is the bio on the player so put commands and such there for people to see
-- Set a profile image as you'd like
-- Once done save your changes
-  ![General Information](assets/geninfo.png)
+---
 
-3. Go to the Bot tab on the left
+### 2. Create a Virtual Environment (Recommended)
 
-- Confirm it has the username and icon you want
-- Uncheck Public so others can't invite your bot to their servers
-- There is a Token setting where you'll want to click reset token or copy
-- Once you have the token, do not share it. Put it in your .env file where PLACEHOLDER is.
+**Windows:**
 
-4. Inviting to Server
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
 
-- Go to OAuth2 tab on the left
-- under OAuth2 URL Generator select bot
-- A bot permissions box should appear and set these settings
-  ![bot permissions](assets/botperms.png)
-- feel free to remove some, I just leave these since it is your own bot
-- Once done, copy the generated URL at the bottom and paste it into a new tab
-  ![invite bot](assets/invitebot.png)
+**macOS/Linux:**
 
-5. Enjoy the bot!
-   Commands are:
-   ?play url (or name of song)
-   ?resume
-   ?pause
-   ?stop
-   ?loop
-   ?skip
-   ?queue
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
 
-   Note:
-   This bot does run off your own computer so you'll need to run the main to start it up
-   and then you can talk to it in discord
-   Bot should say "name" is connected and ready!
+---
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+> Make sure you have `ffmpeg` installed and available in your system PATH.
+
+---
+
+### 4. Create a Discord Application
+
+1. Visit: [https://discord.com/developers/applications](https://discord.com/developers/applications)
+2. Click **New Application**, give it a name, and click **Create**
+
+#### 📌 General Information
+
+- Add a description and profile image
+- Save your changes
+
+![General Information](assets/generalinfo.png)
+
+---
+
+### 5. Add the Bot
+
+1. Go to the **Bot** tab
+2. Click **Add Bot**
+3. (Optional) Uncheck "Public Bot" to limit it to your server
+4. Click **Reset Token** and **Copy** your bot token
+
+Paste the token into a file named `.env` like this:
+
+```env
+discord_token=YOUR_DISCORD_BOT_TOKEN
+```
+
+> ❗ **Never share your token publicly.** It gives full control of your bot.
+
+---
+
+### 6. Invite the Bot to Your Server
+
+1. Go to the **OAuth2 > URL Generator** tab
+2. Under **Scopes**, check `bot`
+3. Under **Bot Permissions**, check:
+
+   - Connect
+   - Speak
+   - Send Messages
+   - Embed Links (optional)
+   - Read Message History (optional)
+
+![bot permissions](assets/botperms.png)
+
+4. Copy the generated link, paste it into a browser, and invite your bot
+
+![invite bot](assets/invitebot.png)
+
+---
+
+### 7. Run the Bot
+
+```bash
+python main.py
+```
+
+You should see:
+
+```
+BotName is connected and ready!
+```
+
+---
+
+## ✅ Commands
+
+| Command               | Action                         |
+| --------------------- | ------------------------------ |
+| `?play <name or URL>` | Play a song from YouTube       |
+| `?pause`              | Pause playback                 |
+| `?resume`             | Resume playback                |
+| `?stop`               | Stop playback and disconnect   |
+| `?skip`               | Skip to the next song          |
+| `?loop`               | Toggle looping of current song |
+| `?queue`              | Display current song queue     |
+| `?nowplaying`         | Show currently playing track   |
+
+---
+
+## 📂 Project Structure
+
+```
+discord-music-bot/
+├── bgmusic.py         # Main bot script
+├── .env               # Secret token file (do not share)
+├── .gitignore         # Ignore .env and __pycache__
+├── requirements.txt   # Project dependencies
+├── README.md          # Setup instructions (this file)
+└── assets/            # Images for the README
+```
+
+---
+
+## 🖼 Demo
+
+> Add a screenshot or GIF of the bot running here
+
+![Bot running screenshot](assets/nowplaying.png)
+
+---
+
+## 🙋 Author
+
+**James Hamm**  
+[GitHub](https://github.com/JamesVhal)
